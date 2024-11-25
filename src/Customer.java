@@ -4,7 +4,7 @@ class Customer implements Serializable {
     private String name;
     private String phone;
 
-    // (1đ) Hàm thiết lập (constructor)
+    //  Hàm thiết lập 
     public Customer(String name, String phone) {
         this.name = name;
         this.phone = phone;
@@ -19,6 +19,6 @@ class Customer implements Serializable {
     }
 
     public void displayInfo() {
-        System.out.println("Ten khach hang: " + name + " | SDT: " + phone);
+        System.out.println("Ten khach hang: " + name + " | SDT: " + phone+"\n");
     }
 }

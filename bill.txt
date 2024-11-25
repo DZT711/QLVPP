@@ -1,0 +1,25 @@
+=== HOA DON VAN PHONG PHAM ===
+Thoi gian: 25/11/2024 13:21:41
+
+Khach hang: huy
+SDT: 09867890-
+
+Danh sach san pham:
+
+- but lllllllllllllllllllll | Don gia: 900000.0 dong | Don gia ap dung khuyen mai 450000.0 dong | So luong: 10
+- but ssssssssssssss | Don gia: 19000.0 dong | Don gia ap dung khuyen mai 15200.0 dong | So luong: 5
+Tong tien (chua giam tru): 9095000.0 dong
+Thanh tien: 9009500.0 dong
+================
+
+Khach hang: thanh
+SDT: 0987654
+
+Danh sach san pham:
+
+- but lllllllllllllllllllll | Don gia: 900000.0 dong | Don gia ap dung khuyen mai 450000.0 dong | So luong: 14
+- but ssssssssssssss | Don gia: 19000.0 dong | Don gia ap dung khuyen mai 15200.0 dong | So luong: 101
+Tong tien (chua giam tru): 1.4519E7 dong
+Thanh tien: 7835200.0 dong
+================
+

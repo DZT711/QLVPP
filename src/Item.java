@@ -1,37 +1,46 @@
-import java.io.Serializable;
-
-// (1đ) Có interface
+import java.io.Serializable;// thư viện giúp lưu trữ vào file (bill.txt và billhistory.txt)
+import java.util.*;
+//  Có interface
 interface Discountable {
-    void applyDiscount(); // Phương thức trừu tượng cho giảm giá
+    double applyDiscount(double discount); // Phương thức trừu tượng cho giảm giá
 }
 
-// (1đ) Lớp trừu tượng Item
+//  Lớp trừu tượng Item
 abstract class Item implements Serializable {
     protected String id;
     protected String name;
     protected double price;
-    
-    // (1đ) Thuộc tính static
+    protected double discountedPrice;
+    //  Thuộc tính static
     protected static int itemCount = 0;
+            // Thêm phương thức abstract applyDiscount
+    public abstract double applyDiscount(double discount);
+    
 
-    // (1đ) Hàm thiết lập (constructor)
-    public Item(String id, String name, double price) {
+    //  Hàm thiết lập 
+    public Item(String id, String name, double price, double discountedPrice) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.discountedPrice=discountedPrice;
         itemCount++;
     }
 
-    // (1đ) Hàm trừu tượng (abstract)
+    //  Hàm trừu tượng 
     public abstract void displayInfo();
 
     // Phương thức static
     public static int getTotalItems() {
         return itemCount;
     }
-
+    public double getdiscountedPrice(){
+        return discountedPrice;
+    }
     public String getId() {
         return id;
+    }
+    public void setName(String name){
+        this.name=name;
     }
 
     public String getName() {
@@ -47,46 +56,55 @@ abstract class Item implements Serializable {
     }
 }
 
-// (1đ) Lớp Pen kế thừa từ Item
+//  Lớp Pen kế thừa từ Item
 class Pen extends Item implements Discountable {
     private String color;
 
-    // (1đ) Hàm thiết lập (constructor)
-    public Pen(String id, String name, double price, String color) {
-        super(id, name, price);
+    //  Hàm thiết lập 
+    public Pen(String id, String name, double price, String color, double discountedPrice) {
+        super(id, name, price, discountedPrice);
         this.color = color;
     }
 
+    
+    //  Cài đặt và sử dụng đa hình
+    @Override
+    public double applyDiscount(double discount) {
+        Scanner z=new Scanner(System.in);
+
+        discountedPrice = this.price*(1-discount); // Giảm giá 10% 
+        //lấy giá gốc nhân với (1-%giảm)= giá sau khi giảm
+        return discountedPrice;
+    }
     @Override
     public void displayInfo() {
-        System.out.println("Ten but: " + name + " | Mua: " + color + " | Don gia: " + price);
-    }
-
-    // (1đ) Cài đặt và sử dụng đa hình
-    @Override
-    public void applyDiscount() {
-        this.price *= 0.9; // Giảm giá 10%
+        System.out.println("Loai san pham: But bi  | Ten san pham: " + name + " |  Mau: " + color + " | Don gia: " + price+ " dong | Don gia ap dung khuyen mai: "+discountedPrice+ " dong");
     }
 }
 
-// (1đ) Lớp Notebook kế thừa từ Item
+//  Lớp Notebook kế thừa từ Item
 class Notebook extends Item implements Discountable {
     private int pages;
 
-    // (1đ) Hàm thiết lập (constructor)
-    public Notebook(String id, String name, double price, int pages) {
-        super(id, name, price);
+    //  Hàm thiết lập 
+    public Notebook(String id, String name, double price, int pages, double discountedPrice) {
+        super(id, name, price, discountedPrice);
         this.pages = pages;
     }
 
+    
+    //  Cài đặt và sử dụng đa hình
+    @Override
+    public double applyDiscount(double discount) {
+        Scanner z=new Scanner(System.in);
+
+        discountedPrice = this.price*(1-discount); // Giảm giá 10% 
+        //lấy giá gốc nhân với (1-%giảm)= giá sau khi giảm
+        return discountedPrice;
+    }
     @Override
     public void displayInfo() {
-        System.out.println("Ten so ghi chu: " + name + " | So trang: " + pages + " | Don gia: " + price);
-    }
-
-    // (1đ) Cài đặt và sử dụng đa hình
-    @Override
-    public void applyDiscount() {
-        this.price *= 0.85; // Giảm giá 15%
+        System.out.println("Loai san pham: So ghi chu | Ten san pham: " + name + " |  So trang: " + pages + " | Don gia: " + price+" dong | Don gia ap dung khuyen mai: "+discountedPrice+ " dong");
     }
 }
+
