@@ -1,25 +1,30 @@
 === HOA DON VAN PHONG PHAM ===
-Thoi gian: 25/11/2024 13:21:41
 
+Thoi gian: 28/11/2024 17:59:03
+
+ID hoa don: 22
 Khach hang: huy
-SDT: 09867890-
+SDT: 0256
+ID khach: 36
 
 Danh sach san pham:
 
-- but lllllllllllllllllllll | Don gia: 900000.0 dong | Don gia ap dung khuyen mai 450000.0 dong | So luong: 10
-- but ssssssssssssss | Don gia: 19000.0 dong | Don gia ap dung khuyen mai 15200.0 dong | So luong: 5
-Tong tien (chua giam tru): 9095000.0 dong
-Thanh tien: 9009500.0 dong
-================
+- but t | Don gia: 10000.0 dong | Don gia ap dung khuyen mai 0.0 dong | So luong: 10
 
+Tong tien (chua giam tru): 100000.0 dong
+Thanh tien: 0.0 dong
+==============================================
+
+ID hoa don: 2243
 Khach hang: thanh
-SDT: 0987654
+SDT: 25376
+ID khach: 557
 
 Danh sach san pham:
 
-- but lllllllllllllllllllll | Don gia: 900000.0 dong | Don gia ap dung khuyen mai 450000.0 dong | So luong: 14
-- but ssssssssssssss | Don gia: 19000.0 dong | Don gia ap dung khuyen mai 15200.0 dong | So luong: 101
-Tong tien (chua giam tru): 1.4519E7 dong
-Thanh tien: 7835200.0 dong
-================
+- but t | Don gia: 10000.0 dong | Don gia ap dung khuyen mai 999.9999999999998 dong | So luong: 10
+
+Tong tien (chua giam tru): 100000.0 dong
+Thanh tien: 9999.999999999998 dong
+==============================================
 

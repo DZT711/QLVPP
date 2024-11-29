@@ -1,0 +1,13 @@
+
+=== DANH SACH KHACH HANG ===
+
+
+1Ten khach hang: huy
+ID khach hang: 627
+So dien thoai: 098765
+______________________________
+
+2Ten khach hang: bl
+ID khach hang: 6789
+So dien thoai: 0889
+______________________________
