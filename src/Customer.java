@@ -28,4 +28,13 @@ class Customer implements Serializable {
     public void displayInfo() {
         System.out.println("Ten khach hang: " + name + " | ID: "+id+ " |  SDT: " + phone+"\n");
     }
+
+    public void setName(String newName) {
+    this.name=newName;
+    }
+
+    public void setPhone(String newPhone) {
+        this.phone=newPhone;
+    }
 }
+

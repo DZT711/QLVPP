@@ -90,73 +90,73 @@ class Bill implements Serializable {
              else if (iq.item instanceof Notebook) 
             
             {
-                System.out.println("Loai san pham: Vo | Ten Vo" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Vo | Ten Vo: " + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Paper) 
             
             {
-                System.out.println("Loai san pham: Giay In | Ten Giay In" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Giay In | Ten Giay In: " + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Eraser) 
             
             {
-                System.out.println("Loai san pham: Gom | Ten Gom" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Gom | Ten Gom: " + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Glue) 
             
             {
-                System.out.println("Loai san pham: Keo Dan | Ten Keo Dan" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Keo Dan | Ten Keo Dan:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Ruler) 
             
             {
-                System.out.println("Loai san pham: Thuoc Ke | Ten Thuoc Ke" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Thuoc Ke | Ten Thuoc Ke:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Envelope) 
             
             {
-                System.out.println("Loai san pham: Phong Bi | Ten Phong Bi" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Phong Bi | Ten Phong Bi:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Scissor) 
             
             {
-                System.out.println("Loai san pham: Keo Cat Giay | Ten vo" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Keo Cat Giay | Ten Keo Cat Giay:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof NameTag) 
             
             {
-                System.out.println("Loai san pham: Nhan Vo | Ten Nhan Vo" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Nhan Nhan Ten | Ten Nhan Nhan Ten:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof BookJacket) 
             
             {
-                System.out.println("Loai san pham: Bia Sach Vo | Ten Bia Sach Vo" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Bia Sach Vo | Ten Bia Sach Vo:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof ChalkBoard) 
             
             {
-                System.out.println("Loai san pham: Bang Phan | Ten Bang Phan" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Bang Phan | Ten Bang Phan:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Chalk) 
             
             {
-                System.out.println("Loai san pham: Phan Bang | Ten Phan Bang" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Phan Bang | Ten Phan Bang:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof Book) 
             
             {
-                System.out.println("Loai san pham: Sach | Ten Sach" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Sach | Ten Sach:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
              else if (iq.item instanceof NotePaper) { 
             
             {
-                System.out.println("Loai san pham: Giay Ghi Chu | Ten Giay Ghi Chu" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
+                System.out.println("Loai san pham: Giay Ghi Chu | Ten Giay Ghi Chu:" + iq.item.getName() + " | Don gia: " + iq.item.getPrice() + " dong | Don gia ap dung khuyen mai " +  iq.currentDiscountedPrice + " dong | So luong: " + iq.quantity);
             }
 
         }
-        System.out.println("\nTong tien (chua giam tru): " + totalAmount+" dong");
-        System.out.println("Tong so tien can thanh toan: " + discountedAmount+" dong");
     }
+    System.out.println("\nTong tien (chua giam tru): " + totalAmount+" dong");
+    System.out.println("Tong so tien can thanh toan: " + discountedAmount+" dong");
 }
 
     public double getTotalAmount() {
@@ -256,4 +256,5 @@ private static void appendToHistory(ArrayList<Bill> bills) {
             System.out.println("Loi khi doc lich su: " + e.getMessage());
         }
     }
+
 }

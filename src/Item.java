@@ -363,7 +363,7 @@ class ChalkBoard extends Item implements Discountable {
     }
     @Override
     public void displayInfo() {
-        System.out.println("Loai san pham: Bang phan   | Ten san pham: " + name + " | ID : "+id+ "|  Kich thuoc (   chieu rong x chieu dai) : " + size + " | Don gia: " + price+ " dong" );
+        System.out.println("Loai san pham: Bang phan   | Ten san pham: " + name + " | ID : "+id+ "|  Kich thuoc ( chieu rong x chieu dai ) : " + size + " | Don gia: " + price+ " dong" );
     }
 }
 class Chalk extends Item implements Discountable {
