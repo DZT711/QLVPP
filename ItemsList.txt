@@ -3,115 +3,19 @@
 
 ______________________________
 
+Thoi gian: 03/12/2024 15:22:21
+
 
 1/ Loai san pham: But
-Ten san pham: but dd
-ID san pham: 789
+Ten san pham: but tttt
+ID san pham: 9823
 Gia goc: 9000.0 dong
-Gia khuyen mai: 9000.0 dong
 Mau: xanh
 ______________________________
 
-2/ Loai san pham: Vo
-Ten san pham: vo thanh
-ID san pham: 7891111
-Gia goc: 18000.0 dong
-Gia khuyen mai: 18000.0 dong
-So trang: 50
-______________________________
-
-3/ Loai san pham: Giay In
-Ten san pham: giay a4
-ID san pham: 783
-Gia goc: 100.0 dong
-Gia khuyen mai: 100.0 dong
-Kich Thuoc : a3
-______________________________
-
-4/ Loai san pham: Gom
-Ten san pham: gom ttt
-ID san pham: 789025
-Gia goc: 10000.0 dong
-Gia khuyen mai: 10000.0 dong
-Chat lieu: cao su
-______________________________
-
-5/ Loai san pham: Thuoc Ke
-Ten san pham: thuoc hhh
-ID san pham: 99999
-Gia goc: 18000.0 dong
-Gia khuyen mai: 18000.0 dong
-Loai :eke
-______________________________
-
-6/ Loai san pham: Keo Dan
-Ten san pham: keo ggg
-ID san pham: 099993939
-Gia goc: 19000.0 dong
-Gia khuyen mai: 19000.0 dong
-Loai : hh
-______________________________
-
-7/ Loai san pham: Phong bi
-Ten san pham: phong bi gggggg
-ID san pham: 987839
-Gia goc: 11000.0 dong
-Gia khuyen mai: 11000.0 dong
-Mau san pham : trang
-______________________________
-
-8/ Loai san pham: Keo Cat Giay
-Ten san pham: keo ghj
-ID san pham: 77777
-Gia goc: 80000.0 dong
-Gia khuyen mai: 80000.0 dong
-Hinh dang luoi keo: cong
-______________________________
-
-9/ Loai san pham: Nhan Ten
-Ten san pham: nhan ten kkkkkk
-ID san pham: 277272
-Gia goc: 19900.0 dong
-Gia khuyen mai: 19900.0 dong
-Hinh dang nhan ten: hcn
-______________________________
-
-10/ Loai san pham: Bia Sach Vo
-Ten san pham: bia sach
-ID san pham: 65844
-Gia goc: 7000.0 dong
-Gia khuyen mai: 7000.0 dong
-Loai :sach
-______________________________
-
-11/ Loai san pham: Bang Phan
-Ten san pham: bang phan nnnn
-ID san pham: 7434
-Gia goc: 200000.0 dong
-Gia khuyen mai: 200000.0 dong
-Kich Thuoc : 60x60
-______________________________
-
-12/ Loai san pham: Phan Bang
-Ten san pham: phan dddd
-ID san pham: 1782834
-Gia goc: 5000.0 dong
-Gia khuyen mai: 5000.0 dong
-Mau san pham : trang
-______________________________
-
-13/ Loai san pham: Giay Ghi Chu
-Ten san pham: giay note rrrr
-ID san pham: 728433
-Gia goc: 12000.0 dong
-Gia khuyen mai: 12000.0 dong
-Mau san pham : xanh
-______________________________
-
-14/ Loai san pham: Sach
-Ten san pham: sachs seg
-ID san pham: Sach tieng viet 1
-Gia goc: 70000.0 dong
-Gia khuyen mai: 70000.0 dong
-Tac gia: nsh
+2/ Loai san pham: Sach
+Ten san pham: sach tieng iet
+ID san pham: 93284
+Gia goc: 50000.0 dong
+Tac gia: nxb
 ______________________________

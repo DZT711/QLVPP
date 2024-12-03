@@ -432,7 +432,7 @@ public static void saveCustomersToFile() {
         writer.write("\n=== DANH SACH KHACH HANG ===\n\n");
         writer.write("______________________________\n\n");
         String timestamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-        writer.write("Thoi gian: " + timestamp + "\n\n");
+        writer.write("Thoi gian luu : " + timestamp + "\n\n");
         for (Customer customer : uniqueCustomers) {
             dem++;
             writer.write("\n"+dem+"/ Ten khach hang: " + customer.getName() + "\n");
@@ -446,7 +446,7 @@ public static void saveCustomersToFile() {
     }
 }
 
-// Phương thức đọc danh sách khách hàng từ file
+// Phương thức đọc danh sách khách hàng từ file và thêm vào ArrayList
 public static void readCustomersFromFile() {
     try (BufferedReader reader = new BufferedReader(new FileReader("CustomersList.txt"))) {
         String line;
@@ -471,7 +471,7 @@ public static void readCustomersFromFile() {
             writer.write("\n=== DANH SACH SAN PHAM ===\n\n");
             writer.write("______________________________\n\n");
             String timestamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-            writer.write("Thoi gian: " + timestamp + "\n\n");
+            writer.write("Thoi gian luu : " + timestamp + "\n\n");
             int dem = 0;
             for (Item item : items) {
                 dem++;
@@ -508,7 +508,7 @@ public static void readCustomersFromFile() {
                 writer.write("Ten san pham: " + item.getName() + "\n");
                 writer.write("ID san pham: " + item.getId() + "\n");
                 writer.write("Gia goc: " + item.getPrice() + " dong\n");
-                writer.write("Gia khuyen mai: " + item.getdiscountedPrice() + " dong\n");
+
                 
                 // Thêm thông tin chi tiết cho từng loại sản phẩm
                 if (item instanceof Pen) {
@@ -548,19 +548,19 @@ public static void readCustomersFromFile() {
             System.out.println("\nLoi khi luu danh sach san pham: " + e.getMessage());
         }
     }
-
-    // Phương thức đọc danh sách sản phẩm từ file
-    public static void readItemsFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("ItemsList.txt"))) {
-            String line;
-            System.out.println("\nDanh sach san pham tu file ItemsList.txt:");
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Loi khi doc danh sach san pham: " + e.getMessage());
+// Phương thức đọc danh sách sản phẩm từ file và thêm vào ArrayList
+public static void readItemsFromFile() {
+    try (BufferedReader reader = new BufferedReader(new FileReader("ItemsList.txt"))) {
+        String line;
+        System.out.println("\nDanh sach san pham tu file ItemsList.txt:");
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
         }
+    } catch (IOException e) {
+        System.out.println("Loi khi doc danh sach san pham: " + e.getMessage());
     }
+}
+
 
 // Tìm kiếm khách hàng theo ID
 public static void searchCustomerById() {
@@ -778,6 +778,59 @@ public static void editBillById() {
     }
 }
 
+public static void readBillsFromFileAndSaveToAL() {
+    try (BufferedReader reader = new BufferedReader(new FileReader("Bill.txt"))) {
+        String line;
+        Bill currentBill = null;
+        Customer currentCustomer = null;
+
+        while ((line = reader.readLine()) != null) {
+            if (line.startsWith("ID hoa don:")) {
+                if (currentBill != null) {
+                    bills.add(currentBill); // Add the completed bill to the list
+                }
+                String billId = line.split(":")[1].trim();
+                currentBill = new Bill(null, billId); // Initialize Bill with null Customer for now
+            } else if (line.startsWith("Khach hang:")) {
+                String customerName = line.split(":")[1].trim();
+                currentCustomer = new Customer(customerName, "", ""); // Create a Customer object
+            } else if (line.startsWith("SDT:")) {
+                String phone = line.split(":")[1].trim();
+                if (currentCustomer != null) {
+                    currentCustomer.setPhone(phone); // Set phone for the current customer
+                }
+            } else if (line.startsWith("ID khach:")) {
+                String customerId = line.split(":")[1].trim();
+                if (currentCustomer != null) {
+                    currentCustomer.setid(customerId); // Set ID for the current customer
+                    currentBill = new Bill(currentCustomer, currentBill.getid()); 
+                    // Replace the Bill object with a new one initialized with the Customer
+                }
+            } else if (line.startsWith("_")) { // Parse item details
+                String[] parts = line.substring(2).split("\\|");
+                if (parts.length >= 3 && currentBill != null) {
+                    String itemName = parts[0].trim();
+                    int quantity = Integer.parseInt(parts[1].split(":")[1].trim());
+                    double discount = Double.parseDouble(parts[2].split(":")[1].trim());
+                    for (Item item : items) {
+                        if (item.getName().equalsIgnoreCase(itemName)) {
+                            currentBill.addItem(item, quantity, discount); // Add item to the current bill
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (currentBill != null) {
+            bills.add(currentBill); // Add the last processed bill to the list
+        }
+        System.out.println("\nDanh sach hoa don da duoc doc tu file.");
+    } catch (IOException e) {
+        System.out.println("Loi khi doc file Bill.txt: " + e.getMessage());
+    }
+}
+
 
  // Cập nhật phương thức main để thêm các chức năng mới
  public static void main(String[] args) {
@@ -808,7 +861,8 @@ public static void editBillById() {
         System.out.println("18. Tim kiem hoa don bang ID");
         System.out.println("19. Xoa hoa don bang ID");
         System.out.println("20. Sua thong tin hoa don bang ID");
-        System.out.println("21. Thoat\n");
+        System.out.println("21. Doc file Bill.txt va luu vao mang");
+        System.out.println("22. Thoat\n");
         System.out.println("_________________________________________\n");
         
         System.out.print("Lua chon muc: ");
@@ -849,7 +903,7 @@ public static void editBillById() {
             break;
             case 16 : readItemsFromFile(); 
             break;
-            case 17: displayCustomers();
+            case 17:  displayCustomers();
             break;
             case 18 : searchBillById();
             break;
@@ -857,10 +911,12 @@ public static void editBillById() {
             break;
             case 20 : editBillById();
             break;
-            case 21 : System.out.println("Thoat chuong trinh.\nThoat chuong trinh..\nThoat chuong trinh...\n Chao tam biet !!!");
+            case 21 :readBillsFromFileAndSaveToAL();
+            break;
+            case 22 : System.out.println("Thoat chuong trinh.\nThoat chuong trinh..\nThoat chuong trinh...\nChao tam biet !!!");
             break;
             default : System.out.println("Lua chon khong hop le. Vui long chon lai.");
         }
-    } while (choice != 21);
+    } while (choice != 22);
     }
 }

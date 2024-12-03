@@ -54,6 +54,13 @@ abstract class Item implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
+    public void setdiscountedPrice(double discountedPrice) {
+        this.discountedPrice = discountedPrice;
+    }
+    public void setId(String id)
+    {
+        this.id=id;
+    }
 }
 
 //  Lớp Pen kế thừa từ Item
@@ -363,7 +370,7 @@ class ChalkBoard extends Item implements Discountable {
     }
     @Override
     public void displayInfo() {
-        System.out.println("Loai san pham: Bang phan   | Ten san pham: " + name + " | ID : "+id+ "|  Kich thuoc ( chieu rong x chieu dai ) : " + size + " | Don gia: " + price+ " dong" );
+        System.out.println("Loai san pham: Bang phan   | Ten san pham: " + name + " | ID : "+id+ "|  Kich thuoc (chieu rong x chieu dai) : " + size + " | Don gia: " + price+ " dong" );
     }
 }
 class Chalk extends Item implements Discountable {
