@@ -11,23 +11,18 @@ class ItemQuantity implements Serializable  //đây là lớp mới, đổi tên
     int quantity;
     double currentDiscountedPrice; // Thêm thuộc tính để lưu giá khuyến mãi hiện tại
 
-    public ItemQuantity(Item item, int quantity, double currentDiscountedPrice) //hàm tl có ts thêm thuộc tính sl và giá km
+    public ItemQuantity(Item item, int quantity, double currentDiscountedPrice) //phương thức tl có ts thêm thuộc tính sl và giá km
     {
         this.item = item;
         this.quantity = quantity;
         this.currentDiscountedPrice = currentDiscountedPrice;
     }
 
-    // Giữ lại hàm tạo cũ để không ảnh hưởng đến các phần khác của mã
-    public ItemQuantity(Item item, int quantity) //hàm tl có ts thêm thuộc tính sl
-    {
-        this.item = item;
-        this.quantity = quantity;
-        this.currentDiscountedPrice = item.getPrice(); // Mặc định bằng giá gốc
-    }
+
 }
 class Bill implements Serializable {
     private Customer customer;//biến chứa thông tin khách hàng
+    //khai báo lớp khách hàng bằng biến thay vì mảng vì lớp bill ko tắc động gì nhiều tới các thuộc tính của customer
     private ArrayList<ItemQuantity> itemQuantities;//khai báo array list của items được đổi têm thành  ItemQuantity
     private String id;
     private double totalAmount;//pt tính tổng hóa đơn chưa tính giá km

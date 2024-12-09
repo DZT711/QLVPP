@@ -4,11 +4,12 @@ import java.util.*;
 
 public class Main //hàm Main chứa menu và chạy chương trình 
 {
-    // mảng các lớp dối tượng
+    // gán biến là mảng các lớp dối tượng
     private static ArrayList<Item> items = new ArrayList<>();
     private static ArrayList<Customer> customers = new ArrayList<>();
     private static ArrayList<Bill> bills = new ArrayList<>();
-
+  //private static ArrayList<"class"> "variable" = new ArrayList<>();
+                                                                // ^ chỗ này khi ghi tên 1 arrl khác thì nó sẽ sao chép arrl vào 1 arrl của "variable"
     //  hàm chức năng thêm sản phẩm
     public static void addItem() {
         Scanner scanner=new Scanner(System.in);
@@ -83,7 +84,7 @@ public class Main //hàm Main chứa menu và chạy chương trình
             double discountedPrice=price;
 
 
-            Item newItem = null;// khai báo tránh lỗi 
+            Item newItem = null;// khai báo biến gán mặc định là null để sau này xét xem thử mảng item có trống k 
             switch (type) {
                 case 1 : 
                 {
@@ -253,9 +254,9 @@ public class Main //hàm Main chứa menu và chạy chương trình
                 // break;
             }
 
-            if (newItem != null)// khi mảng không rỗng thì thông báo 
+            if (newItem != null)// khi biến sp mới không rỗng thì thêm sanphaamr 
             {
-                items.add(newItem);// thêm sp vào arraylist
+                items.add(newItem);// lệnh thêm sp của arraylist
                 System.out.println("\nDa them san pham!\n");
             }
     }
@@ -271,11 +272,12 @@ public class Main //hàm Main chứa menu và chạy chương trình
             System.out.println("Danh sach san pham hien tai:\n\n");
             int đem=0;
             for (Item item : items) 
-            // giống for (int i=0;i<items.length;i++) 
+            // vòng lặp for each giống for (int i=0;i<items.length;i++) 
+            // vòng lặp này qua mỗi lần lặp vd lần lặp 1 item sẽ là items.get(0) là phần tử đầu của arrlist tương tự như các phần tử về sau
             {
                 đem++;
                 System.out.print(đem+"/ ");
-                item.displayInfo();//xuất ds sp
+                item.displayInfo();//gọi pt xuất ds sp
             }
         }
     }
@@ -339,7 +341,7 @@ public class Main //hàm Main chứa menu và chạy chương trình
 
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getId().equalsIgnoreCase(id)) {
-                items.remove(i);//xóa sp
+                items.remove(i);//xóa sp 
                 System.out.println("San pham da duoc xoa.");
                 found = true;
                 break;
@@ -414,13 +416,14 @@ public class Main //hàm Main chứa menu và chạy chương trình
     // Phương thức lưu danh sách khách hàng vào file
 public static void saveCustomersToFile() {
     try (FileWriter writer = new FileWriter("CustomersList.txt")) {
-        // Tạo một Set để lưu trữ các khách hàng duy nhất
+        // Tạo một Set để lưu trữ các khách hàng không trùng lặp
         Set<Customer> uniqueCustomers = new HashSet<>();
-        
-        // Thu thập các khách hàng duy nhất từ hóa đơn
+      //Set<"class"> "variable" = new HashSet<>();
+        //                                      ^ giống arrl
+        // Thu thập các khách hàng không trùng lặp từ hóa đơn
         for (Bill bill : bills) {
 
-            uniqueCustomers.add(bill.getcustomer());
+            uniqueCustomers.add(bill.getcustomer());//lấy dữ liệu khách hàng từ class bill vào set customer
         }
 
         if (uniqueCustomers.isEmpty()) {
@@ -431,9 +434,9 @@ public static void saveCustomersToFile() {
         int dem=0;
         writer.write("\n=== DANH SACH KHACH HANG ===\n\n");
         writer.write("______________________________\n\n");
-        String timestamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-        writer.write("Thoi gian luu : " + timestamp + "\n\n");
-        for (Customer customer : uniqueCustomers) {
+        String timestamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());//format lấy ngày tháng năm
+        writer.write("Thoi gian : " + timestamp + "\n\n");//lấy thời gian lưu
+        for (Customer customer : uniqueCustomers) {//duyệt mảng HSet customer 
             dem++;
             writer.write("\n"+dem+"/ Ten khach hang: " + customer.getName() + "\n");
             writer.write("ID khach hang: " + customer.getid() + "\n");
@@ -441,7 +444,7 @@ public static void saveCustomersToFile() {
             writer.write("______________________________\n");
         }
         System.out.println("\nDa luu danh sach khach hang vao CustomersList.txt");
-    } catch (IOException e) {
+    } catch (IOException e) {//nếu bắt lỗi I/O khi lưu ds kh
         System.out.println("\nLoi khi luu danh sach khach hang: " + e.getMessage());
     }
 }
@@ -452,7 +455,7 @@ public static void readCustomersFromFile() {
         String line;
         System.out.println("\nDanh sach khach hang tu file CustomersList.txt:");
         while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+            System.out.println(line);//đọc từng dòng
         }
     } catch (IOException e) {
         System.out.println("Loi khi doc danh sach khach hang: " + e.getMessage());
@@ -471,11 +474,11 @@ public static void readCustomersFromFile() {
             writer.write("\n=== DANH SACH SAN PHAM ===\n\n");
             writer.write("______________________________\n\n");
             String timestamp = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date());
-            writer.write("Thoi gian luu : " + timestamp + "\n\n");
+            writer.write("Thoi gian : " + timestamp + "\n\n");
             int dem = 0;
             for (Item item : items) {
                 dem++;
-                if (item instanceof Pen) {
+                if (item instanceof Pen) {// xét loại sp 
                     writer.write("\n"+dem+"/ Loai san pham: But\n");
                 } else if (item instanceof Notebook) {
                     writer.write("\n"+dem+"/ Loai san pham: Vo\n");
@@ -512,7 +515,7 @@ public static void readCustomersFromFile() {
                 
                 // Thêm thông tin chi tiết cho từng loại sản phẩm
                 if (item instanceof Pen) {
-                    writer.write("Mau: " + ((Pen)item).getcolor() + "\n");//lay thuoc tinh cua item lop pen
+                    writer.write("Mau: " + ((Pen)item).getcolor() + "\n");//lấy thuộc tính của loại sp lớp pen
                 } else if (item instanceof Paper) {
                     writer.write("Kich Thuoc : " + ((Paper)item).getsize() + "\n");
                 } else if (item instanceof Eraser) {
@@ -573,7 +576,7 @@ public static void searchCustomerById() {
     // Tìm kiếm khách hàng trong danh sách hóa đơn
     for (Bill bill : bills) {
         Customer customer = bill.getcustomer();
-        if (customer.getid().equalsIgnoreCase(id)) {
+        if (customer.getid().equalsIgnoreCase(id)) {// so sánh id mặc kệ có in hoa hay k
             System.out.println("Thong tin khach hang:");
             customer.displayInfo(); // Sử dụng phương thức displayInfo() của lớp Customer
             found = true;
@@ -603,8 +606,9 @@ public static void editCustomerById() {
 
             System.out.print("Nhap ten moi (hoac an Enter de giu nguyen): ");
             String newName = scanner.nextLine();
-            if (!newName.trim().isEmpty()) {
-                customer.setName(newName);
+            if (!newName.trim().isEmpty()) //kiểm tra xem người nhập có nhập tên mới k bằng cách kiểm tra biến mới có rỗng k nếu k thì thực thi lệnh giữ nguyên
+            {
+                customer.setName(newName);//nếu có thì gọi pt set
             }
 
             System.out.print("Nhap so dien thoai moi (hoac an Enter de giu nguyen): ");
@@ -632,7 +636,7 @@ public static void displayCustomers() {
     // Sử dụng Set để loại bỏ các khách hàng trùng lặp
     Set<Customer> uniqueCustomers = new HashSet<>();
     
-    // Thu thập các khách hàng duy nhất từ hóa đơn
+    // Thu thập các khách hàng duy nhất từ lớp hóa đơn
     for (Bill bill : bills) {
         uniqueCustomers.add(bill.getcustomer());
     }
@@ -699,8 +703,8 @@ public static void editBillById() {
     boolean found = false;
 
     for (int billIndex = 0; billIndex < bills.size(); billIndex++) {
-        Bill bill = bills.get(billIndex);
-        if (bill.getid().equalsIgnoreCase(billId)) {
+        Bill bill = bills.get(billIndex);//tạo 1 biến mới nó là 1 bill xét nếu k trùng id bill thì sang bill khác còn nếu trùng thì tiến hành edit bill
+        if (bill.getid().equalsIgnoreCase(billId)) {//lấy id của lớp bill để so sánh với id của người  nhập
             System.out.println("Thong tin hien tai cua hoa don:");
             bill.displayBill();
 
@@ -715,9 +719,9 @@ public static void editBillById() {
 
             System.out.print("Lua chon: ");
             int editChoice = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine(); // dọn vùng đệm
 
-            // Edit customer information
+            // Edit tt customer
             if (editChoice == 1 || editChoice == 3) {
                 Customer customer = bill.getcustomer();
                 System.out.print("Nhap ten moi (Enter de giu nguyen): ");
@@ -733,12 +737,12 @@ public static void editBillById() {
                 }
             }
 
-            // Edit bill items
+            // Edit san pham trong bill nay
             if (editChoice == 2 || editChoice == 3) {
-                // Create a new bill with the same customer
+                // tạo bill mới nhưng vẫn giữa tt khách hàng cũ
                 Bill newBill = new Bill(bill.getcustomer(), bill.getid());
                 
-                // Re-add items with potential changes
+                // Sửa phần item cho bill
                 for (Item item : items) {
                     System.out.print("Nhap so luong cho san pham " + item.getName() + ": ");
                     int quantity = scanner.nextInt();
@@ -763,7 +767,7 @@ public static void editBillById() {
                     }
                 }
                 
-                // Replace the old bill with the new one
+                // thay thế bill cũ
                 bills.set(billIndex, newBill);
             }
 
@@ -778,6 +782,7 @@ public static void editBillById() {
     }
 }
 
+//pt doc tu fill bill luu tru thông tin hóa đơn và khách hàng vào mảng arrl (không lưu sản phẩm mua trên hóa đơn)
 public static void readBillsFromFileAndSaveToAL() {
     try (BufferedReader reader = new BufferedReader(new FileReader("Bill.txt"))) {
         String line;
@@ -785,28 +790,28 @@ public static void readBillsFromFileAndSaveToAL() {
         Customer currentCustomer = null;
 
         while ((line = reader.readLine()) != null) {
-            if (line.startsWith("ID hoa don:")) {
+            if (line.startsWith("ID hoa don:")) {// nếu dong bắt đầu từ..
                 if (currentBill != null) {
-                    bills.add(currentBill); // Add the completed bill to the list
+                    bills.add(currentBill); //thêm bill vào arrl
                 }
                 String billId = line.split(":")[1].trim();
-                currentBill = new Bill(null, billId); // Initialize Bill with null Customer for now
-            } else if (line.startsWith("Khach hang:")) {
+                currentBill = new Bill(null, billId); // Tạo bill với giá trị biến customer=null
+            } else if (line.startsWith("Khach hang:")) {//lấy tên
                 String customerName = line.split(":")[1].trim();
-                currentCustomer = new Customer(customerName, "", ""); // Create a Customer object
-            } else if (line.startsWith("SDT:")) {
+                currentCustomer = new Customer(customerName, "", ""); // Tạo 1 customer mới
+            } else if (line.startsWith("SDT:")) {//lấy SĐT
                 String phone = line.split(":")[1].trim();
                 if (currentCustomer != null) {
-                    currentCustomer.setPhone(phone); // Set phone for the current customer
+                    currentCustomer.setPhone(phone); 
                 }
-            } else if (line.startsWith("ID khach:")) {
+            } else if (line.startsWith("ID khach:")) {//lấy id khách
                 String customerId = line.split(":")[1].trim();
                 if (currentCustomer != null) {
-                    currentCustomer.setid(customerId); // Set ID for the current customer
+                    currentCustomer.setid(customerId); 
                     currentBill = new Bill(currentCustomer, currentBill.getid()); 
-                    // Replace the Bill object with a new one initialized with the Customer
+                    // câp nhật bill với customer mới đè lên code dòng 798
                 }
-            } else if (line.startsWith("_")) { // Parse item details
+            } else if (line.startsWith("_")) { //nếu bắt đầu từ gạch ngang
                 String[] parts = line.substring(2).split("\\|");
                 if (parts.length >= 3 && currentBill != null) {
                     String itemName = parts[0].trim();
@@ -814,7 +819,7 @@ public static void readBillsFromFileAndSaveToAL() {
                     double discount = Double.parseDouble(parts[2].split(":")[1].trim());
                     for (Item item : items) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
-                            currentBill.addItem(item, quantity, discount); // Add item to the current bill
+                            currentBill.addItem(item, quantity, discount);
                             break;
                         }
                     }
@@ -823,7 +828,7 @@ public static void readBillsFromFileAndSaveToAL() {
         }
 
         if (currentBill != null) {
-            bills.add(currentBill); // Add the last processed bill to the list
+            bills.add(currentBill); // cập nhật arrl lớp sbill
         }
         System.out.println("\nDanh sach hoa don da duoc doc tu file.");
     } catch (IOException e) {
@@ -890,7 +895,6 @@ public static void readBillsFromFileAndSaveToAL() {
             break;
             case 10 : Bill.readBillHistory();
             break;
-            // Xử lý các chức năng mới
             case 11 : saveCustomersToFile(); 
             break;
             case 12 : readCustomersFromFile(); 
